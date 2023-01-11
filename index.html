@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WORDLE2</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>WORDLE2</h1>
+      <div class="loadingContainer">
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <filter id="shadow">
+              <feDropShadow
+                dx="0"
+                dy="0"
+                stdDeviation="1.5"
+                flood-color="#fc6767"
+              />
+            </filter>
+          </defs>
+          <circle
+            id="spinner"
+            style="
+              fill: transparent;
+              stroke: #dd2476;
+              stroke-width: 7px;
+              stroke-linecap: round;
+              filter: url(#shadow);
+            "
+            cx="50"
+            cy="50"
+            r="45"
+          />
+        </svg>
+      </div>
+      <div class="word-boxes">
+        <div class="word-row row1">
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+        </div>
+        <div class="word-row row2">
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+        </div>
+        <div class="word-row row3">
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+        </div>
+        <div class="word-row row4">
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+        </div>
+        <div class="word-row row5">
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+        </div>
+        <div class="word-row row6">
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+          <input class="word-box" type="text" readonly tabindex="-1" />
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

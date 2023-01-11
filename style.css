@@ -1,0 +1,71 @@
+body {
+  background-color: whitesmoke;
+}
+
+.word-box {
+  height: 75px;
+  width: 75px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(90deg, #fff 15px, transparent 1%) 50%,
+    linear-gradient(#fff 15px, transparent 1%) 50%, #51178c;
+  background-size: 16px 16px;
+}
+
+.word-boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 600px;
+  width: 475px;
+}
+
+.word-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+h1 {
+  border-bottom: 1px solid;
+  padding: 15px;
+}
+
+input.word-box {
+  display: flex;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.loadingContainer {
+  width: 100px;
+  height: 100px;
+  padding-bottom: 2rem;
+}
+
+@keyframes animation {
+  0% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -105;
+  }
+  50% {
+    stroke-dasharray: 80 10;
+    stroke-dashoffset: -160;
+  }
+  100% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -300;
+  }
+}
+
+#spinner {
+  transform-origin: center;
+  animation-name: animation;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier;
+  animation-iteration-count: infinite;
+}
