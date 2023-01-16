@@ -59,16 +59,14 @@ function setBoxValue(letter, boxNumber) {
 }
 
 async function getWordOfTheDay() {
-  let word = await fetch(
-    // "https://words.dev-apis.com/word-of-the-day?puzzle=1222"
-    "https://words.dev-apis.com/word-of-the-day"
-  );
+  let word = await fetch("https://words.dev-apis.com/word-of-the-day");
   let processedWord = await word.json();
   return processedWord.word;
 }
 
 async function validateWord() {
   let correctWord = await getWordOfTheDay();
+  let row = document.querySelector(`.row${currentRow}`);
   if (wordFull === true) {
     loading();
     let wordToCheck = getWordFromScreen().toLowerCase();
@@ -78,7 +76,6 @@ async function validateWord() {
       body: JSON.stringify(dataToSend),
     });
     let validation = await result.json();
-
     if (validation.validWord === true) {
       if (currentRow < 6) {
         showMistakes(wordToCheck, correctWord);
@@ -87,9 +84,11 @@ async function validateWord() {
       }
       nextRow();
     } else {
-      alert("Please enter a good word");
+      row.classList.add("wrong");
     }
     loading();
+    await sleep(2000);
+    row.classList.remove("wrong");
   }
 }
 
@@ -105,7 +104,6 @@ function getWordFromScreen() {
 function showMistakes(guess, correctWord) {
   let aparitions = [];
   let boxesOnCurrentRow = document.querySelector(`.row${currentRow}`).children;
-  // figure out how many times the letter appears in the correct word
   for (let j = 0; j < correctWord.length; j++) {
     let char = guess.charAt(j);
     let count = 0;
@@ -124,7 +122,6 @@ function showMistakes(guess, correctWord) {
     }
   }
 
-  // for every checked letter, check if it is in the correct word
   let rightGuesses = 0;
   aparitions.forEach((el) => {
     if (el.numberofAparitions > 0) {
@@ -176,4 +173,8 @@ function loading() {
     container.style.display = "none";
     isLoading = true;
   }
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

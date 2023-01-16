@@ -9,6 +9,7 @@ body {
 
 .main {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(90deg, #fff 15px, transparent 1%) 50%,
@@ -28,6 +29,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border: 10px solid transparent;
 }
 
 h1 {
@@ -68,4 +70,14 @@ input.word-box {
   animation-duration: 1.2s;
   animation-timing-function: cubic-bezier;
   animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: #ff0000;
+  }
+}
+
+.wrong {
+  animation: blink 0.5s step-end 6 alternate;
 }
